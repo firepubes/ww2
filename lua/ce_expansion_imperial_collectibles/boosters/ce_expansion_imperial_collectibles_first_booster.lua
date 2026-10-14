@@ -1,8 +1,8 @@
 local BOOSTER = BOOSTER
 
-BOOSTER.Name = "{{ EXPANSION_ID }}_booster"
-BOOSTER.Description = "{{ EXPANSION_ID }}_booster_description"
-BOOSTER.Material = "card_engine/expansions/{{ EXPANSION_ID }}/booster.png"
+BOOSTER.Name = "ce_expansion_imperial_collectibles_booster"
+BOOSTER.Description = "ce_expansion_imperial_collectibles_booster_description"
+BOOSTER.Material = "card_engine/expansions/ce_expansion_imperial_collectibles/booster.png"
 
 -- The width and height of the booster pack material in pixels.
 BOOSTER.MaterialWidth = 261
@@ -17,10 +17,22 @@ BOOSTER.SealHeight = 30
 -- Define the card pool for this booster pack
 -- These are the card unique IDs that can appear in this pack
 BOOSTER.CardPool = {
-	-- For example:
-	-- "{{ EXPANSION_ID }}_first_card",
-	-- "{{ EXPANSION_ID }}_second_card",
-	-- etc...
+	"ce_expansion_imperial_collectibles_archer",
+	"ce_expansion_imperial_collectibles_artillery",
+	"ce_expansion_imperial_collectibles_banner",
+	"ce_expansion_imperial_collectibles_battlerider",
+	"ce_expansion_imperial_collectibles_cavalry",
+	"ce_expansion_imperial_collectibles_crossbowman",
+	"ce_expansion_imperial_collectibles_engineer",
+	"ce_expansion_imperial_collectibles_guard",
+	"ce_expansion_imperial_collectibles_halberdier",
+	"ce_expansion_imperial_collectibles_knight",
+	"ce_expansion_imperial_collectibles_priest",
+	"ce_expansion_imperial_collectibles_rangers",
+	"ce_expansion_imperial_collectibles_scholar",
+	"ce_expansion_imperial_collectibles_standard_bearer",
+	"ce_expansion_imperial_collectibles_templar",
+	"ce_expansion_imperial_collectibles_veteran",
 }
 
 -- Define the slot configuration for the booster pack
@@ -31,7 +43,7 @@ BOOSTER.CardPool = {
 --
 -- Legacy support: You can still use rarityWeights instead of attributeWeights.Rarity
 BOOSTER.SlotConfiguration = {
-	-- Slot 1: Common Cards
+	-- Slot 1: Common
 	{
 		attributeWeights = {
 			Rarity = {
@@ -40,7 +52,7 @@ BOOSTER.SlotConfiguration = {
 		},
 	},
 
-	-- Slots 2-5: Commons
+	-- Slot 2: Common
 	{
 		attributeWeights = {
 			Rarity = {
@@ -48,6 +60,8 @@ BOOSTER.SlotConfiguration = {
 			},
 		},
 	},
+
+	-- Slot 3: Common
 	{
 		attributeWeights = {
 			Rarity = {
@@ -55,6 +69,8 @@ BOOSTER.SlotConfiguration = {
 			},
 		},
 	},
+
+	-- Slot 4: Common
 	{
 		attributeWeights = {
 			Rarity = {
@@ -62,6 +78,8 @@ BOOSTER.SlotConfiguration = {
 			},
 		},
 	},
+
+	-- Slot 5: Common Trainer
 	{
 		attributeWeights = {
 			Rarity = {
@@ -73,21 +91,7 @@ BOOSTER.SlotConfiguration = {
 		},
 	},
 
-	-- Slots 6-8: Uncommons
-	{
-		attributeWeights = {
-			Rarity = {
-				Uncommon = 1,
-			},
-		},
-	},
-	{
-		attributeWeights = {
-			Rarity = {
-				Uncommon = 1,
-			},
-		},
-	},
+	-- Slot 6: Uncommon
 	{
 		attributeWeights = {
 			Rarity = {
@@ -96,38 +100,47 @@ BOOSTER.SlotConfiguration = {
 		},
 	},
 
-	-- Slot 9: Rare / Holo Rare
+	-- Slot 7: Uncommon
+	{
+		attributeWeights = {
+			Rarity = {
+				Uncommon = 1,
+			},
+		},
+	},
+
+	-- Slot 8: Uncommon
+	{
+		attributeWeights = {
+			Rarity = {
+				Uncommon = 1,
+			},
+		},
+	},
+
+	-- Slot 9: Rare
 	{
 		attributeWeights = {
 			Rarity = {
 				Rare = 1,
 			},
 		},
-		-- For nested properties, you can use dot notation to specify the attribute path. For example, if you have a card with a
-		-- Variants table and you want to require the Holo variant, you can do:
-		-- requiredAttributes = {
-		-- 	["Variants.Holo"] = true,
-		-- },
 	},
 
-	-- Slots 10-11: Basic Energy
+	-- Slot 10: Epic
 	{
-		requiredAttributes = {
-			Supertype = "Energy",
-		},
 		attributeWeights = {
 			Rarity = {
-				Common = 1,
+				Epic = 1,
 			},
 		},
 	},
+
+	-- Slot 11: Legendary
 	{
-		requiredAttributes = {
-			Supertype = "Energy",
-		},
 		attributeWeights = {
 			Rarity = {
-				Common = 1,
+				Legendary = 1,
 			},
 		},
 	},

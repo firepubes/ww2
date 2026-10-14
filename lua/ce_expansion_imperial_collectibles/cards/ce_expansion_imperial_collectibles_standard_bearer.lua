@@ -1,11 +1,11 @@
 local CARD = CARD
 
-CARD.Name = "{{ EXPANSION_ID }}_first_card"
-CARD.Description = "{{ EXPANSION_ID }}_first_card_description"
-CARD.Texture = "card_engine/expansions/{{ EXPANSION_ID }}/first_card"
-CARD.RearTexture = "card_engine/expansions/{{ EXPANSION_ID }}/back"
+CARD.Name = "ce_expansion_imperial_collectibles_standard_bearer"
+CARD.Description = "ce_expansion_imperial_collectibles_standard_bearer_description"
+CARD.Texture = "card_engine/custom_cards/standard_bearer"
+CARD.RearTexture = "card_engine/custom_cards/card_imperial_back"
 CARD.CardSize = CardEngine.DEFAULT_CARD_MODELS.COMMON
-
+CARD.HolographicStrength = Vector(0.4, 0.4, 1.0)
 -- Normally cards are oriented upright, but if your card model is landscape-oriented, you can adjust the angles here
 -- CARD.ModelAngles = Angle(0, -90, 0)
 
@@ -17,7 +17,7 @@ CARD.CardSize = CardEngine.DEFAULT_CARD_MODELS.COMMON
 -- CARD.HolographicTexture = "card_engine/holo_rainbow_strong"
 
 CARD.Attributes = {
-	Rarity = "Common",
+	Rarity = "Rare",
 	Supertype = "Trainer",
 }
 

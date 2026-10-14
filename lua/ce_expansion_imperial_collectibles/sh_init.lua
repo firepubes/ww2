@@ -1,18 +1,18 @@
 CardEngine = CardEngine or {}
 CardEngine.ExpansionSets = CardEngine.ExpansionSets or {}
-CardEngine.ExpansionSets.{{ EXPANSION_ID_PASCAL_CASE }} = CardEngine.ExpansionSets.{{ EXPANSION_ID_PASCAL_CASE }} or {}
+CardEngine.ExpansionSets.ImperialCollectibles = CardEngine.ExpansionSets.ImperialCollectibles or {}
 
 hook.Add(
 	"CardEngineInitializeExpansionSets",
-	"CardEngine.{{ EXPANSION_ID_PASCAL_CASE }}.InitializeExpansionSet",
+	"CardEngine.ImperialCollectibles.InitializeExpansionSet",
 	function()
-		local EXPANSION_SET_ID = "{{ EXPANSION_ID }}"
+		local EXPANSION_SET_ID = "ce_expansion_imperial_collectibles"
 
 		-- Register the expansion set with its metadata and filterable attributes
 		CardEngine.ExpansionSet.Register({
 			UniqueID = EXPANSION_SET_ID,
-			Name = "expansion_set_{{ EXPANSION_ID }}",
-{{ EXPANSION_REMOTE_DOWNLOAD_URL_LINE }}
+			Name = "expansion_set_ce_expansion_imperial_collectibles",
+
 			-- Define which attributes should appear as filters in the collection menu
 			FilterableAttributes = {
 				Supertype = {
@@ -34,7 +34,7 @@ hook.Add(
 
 		-- Method 1: Load all cards from a directory of files
 		CardEngine.Collection.IncludeDirectory(
-			CardEngine.PathCombine("{{ EXPANSION_ID }}", "cards/"),
+			CardEngine.PathCombine("ce_expansion_imperial_collectibles", "cards/"),
 			nil,
 			-- Automatically inject the ExpansionSet property into all cards loaded from this expansion set
 			function(fileName, cardFilePath)
@@ -45,7 +45,7 @@ hook.Add(
 		-- Method 2: Load all cards from a single file (recommended to reduce amount of files in the expansion set)
 		-- Use tools/concat_cards.js to combine all card files into a single file for this method
 		--[[
-		local sharedFilePath = CardEngine.PathCombine("{{ EXPANSION_ID }}", "cards/sh_all_cards.lua")
+		local sharedFilePath = CardEngine.PathCombine("ce_expansion_imperial_collectibles", "cards/sh_all_cards.lua")
 		AddCSLuaFile(sharedFilePath)
 		local ALL_CARDS = include(sharedFilePath)
 
@@ -59,13 +59,13 @@ hook.Add(
 		--]]
 
 		CardEngine.Booster.IncludeDirectory(
-			CardEngine.PathCombine("{{ EXPANSION_ID }}", "boosters/"),
+			CardEngine.PathCombine("ce_expansion_imperial_collectibles", "boosters/"),
 			nil,
 			function(fileName, boosterFilePath)
 				BOOSTER.ExpansionSet = EXPANSION_SET_ID
 			end
 		)
 
-		CardEngine.Language.IncludeDirectory(CardEngine.PathCombine("{{ EXPANSION_ID }}", "languages/"))
+		CardEngine.Language.IncludeDirectory(CardEngine.PathCombine("ce_expansion_imperial_collectibles", "languages/"))
 	end
 )
